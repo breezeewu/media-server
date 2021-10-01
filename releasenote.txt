@@ -1,0 +1,269 @@
+private version	: 1.7.0.1
+author	: dawson
+Date:2021-03-23
+modify	:
+1.根据固件指定的时间戳写入redis截图
+2.ts文件播放时长写入redis
+3.代码回退到线上版本（除以上修改外）
+4.添加视频数据错误追踪调试代码
+
+private version	: 1.6.5.1
+author	: dawson
+Date:2021-02-24
+modify	:
+1.添加日志及连接断开分析信息
+2.修正时间戳和媒体数据正确性分析由配置问件决定是否开启
+3.解决时区接收错误的问题
+
+private version	: 1.6.4.1
+author	: dawson
+Date:2021-02-10
+modify	:
+1.函数调用增加高耗时告警输出
+2.verbose日志优化
+3.部分代码逻辑优化
+4.日志优化，去掉调试用的sleep语句
+
+private version	: 1.6.3.0
+author	: dawson
+Date:2021-01-27
+modify	:
+1.去掉频繁打印日志的语句
+
+private version	: 1.6.2.4
+author	: dawson
+Date:2020-12-03
+modify	:
+1.修复打印日志崩溃的问题
+2.修复个别音频编码识别为无效数据的问题
+3.修正rtsp播放时间显示错误的问题
+4.修正rtcp包接收逻辑，编码解析失败导致rtsp连接断开
+5.修正时间戳调整错误导致直播丢帧的问题
+
+private version	: 1.6.2.0
+author	: dawson
+Date:2020-12-02
+modify	:
+1.兼容设备端加密推流
+2.分发缓存丢帧策略优化
+3.兼容rtcp数据包处理，以防止解析rtcp包导致rtsp直播中断
+
+private version	: 1.6.1.0
+author	: dawson
+Date:2020-11-30
+modify	:
+1.解决流媒体处理器转发一路流cpu占用率即达到100%的问题
+2.直播拉流业务逻辑优化
+3.日志优化
+4.性能压测稳定版
+5.解决srssource引用未释放导致内存泄漏的问题。
+
+
+private version	: 1.6.0.1
+author	: dawson
+Date:2020-11-25
+modify	:
+1.修正转发metadata数据时重复发送segment start元数据的问题
+
+private version	: 1.6.0.0
+author	: dawson
+Date:2020-11-23
+modify	:
+1.推流过程中视频流不连续时添加http-flv视频流不连续检测及丢帧逻辑
+2.添加配置文件写http-flv及rtsp码流逻辑
+3.日志打印信息及警告优化
+
+private version	: 1.5.0.2
+author	: dawson
+Date:2020-11-06
+modify	:
+1.解决直播连接信息写数据库键值错误导致无法写入的问题
+2.增加web1.0播放支持
+3.增加echoshow播放支持
+
+private version	: 1.3.5.0
+author	: dawson
+Date:2020-09-23
+modify	:
+云存压测修正版
+1.mysql数据库执行失败后立即进行重新连接，不在重试10次。
+
+private version	: 1.3.4.0
+author	: dawson
+Date:2020-09-23
+modify	:
+云存压测修正版
+1.解决心跳包被识别为重新发布包的问题
+2.内存泄漏优化
+3.日志打印优化
+
+private version	: 1.3.2.0
+author	: dawson
+Date:2020-09-15
+modify	:
+云存压测修正版
+1.解决redis数据异步写导致部分TS记录无法上传到S3的问题
+2.内存泄漏优化
+3.日志打印优化
+4.解决数据库访问接口调用可能存在错误隐患的问题
+
+
+private version	: 1.3.0.0
+author	: dawson
+Date:2020-08-21
+modify	:
+云存提测版本：
+1.支持直播推流连接记录到redis数据库
+2.直播推流转发业务优化
+3.直播推流token校验有三方接入服务校验
+4.音视频编码数据rtp封包错误修正
+5.新旧推流sdk的推流兼容
+6.修正avcc/hvcc解析错误的问题
+
+private version	: 1.2.1.0
+author	: dawson
+Date:2020-08-01
+modify	:
+1.通过配置文件配置数据库sql语句最大缓存指令数
+2.数据库访问失败时容错处理,数据库断开或写入失败时支持动态重新加载数据库配置文件
+
+private version	: 1.2.0.0
+author	: dawson
+Date:2020-07-24
+modify	:
+1.RTSP HEVC播放拉流支持
+2.服务器内存泄漏排查
+3.触发类型改变支持
+4.日志打印优化
+
+private version	: 1.1.0.0
+author	: dawson
+Date:2020-06-08
+modify	:
+1.RTMP转RTSP over TCP播放支持
+2.http-flv直播支持
+3.RTMP/RTSP/HTTP-FLV播放三方接入服务token校验支持
+4.云存AIOT1.0接口支持
+5.RTMP扩展支持HEVC码流
+6.HEVC码流转hls支持
+
+private version	: 1.0.0.1
+author	: dawson
+Date:2020-04-22
+modify	:
+1.增加RTSP OVER TCP点播拉流服务功能
+2.RTSP支持TLS加密传输功能
+3.支持RTMP推流转RTSP拉流
+
+private version	: 0.6.0.0
+author	: dawson
+Date:2020-03-17
+modify	:
+1.优化日志信息，提高推流处理效率
+2.日志上报功能添加(上报到redis数据库，mysql数据上报已支持但未测试)
+3.redis数据库写入失败之后重连redis数据库，然后再重新写入
+4.音频ts分片时间戳大于最大分片时长时，采取丢包策略
+5.rtmp连接超时退出将打印超时时间。
+
+private version	: 0.5.1.0
+author	: dawson
+Date:2020-02-25
+modify	:
+1. 内存泄露排查代码注入
+2. 线程泄露排除代码注入
+3. 内存泄露排查
+4. 线程泄露排查
+5. 日志信息优化
+6. aeskeyras加密后增加base64编码支持以免字符串处理出错
+
+
+private version	: 0.5.0.3
+author	: dawson
+date:2019-08-28
+modify	:
+第一轮提测改bug
+1.恢复mpeg-ts pcr的大时间戳方式
+2.接收并记录推流SDK传输的开始时间戳，作为HLS文件的文件名存储视频记录
+
+
+private version	: 0.5.0.1
+author	: dawson
+date:2019-07-17
+modify	:
+1.开始推流时写redis数据库的推流开始时间戳和结束时间戳使用基站的当前时间
+2.开始推流时写redis数据库的时区使用推流基站的时区
+3.srs开发文档评审通过归档到./trunk/doc/srs_dev_doc_V2.0.258.doc
+4.srs配置文档评审通过归档到./trunk/doc/srs_config.doc
+5.srs启动脚本不使用管理员权限运行
+6.添加源节点和边缘节点配置文件
+7.添加redis、rtsp相关的lib库
+
+private version	: 0.5.0.0
+author	: dawson
+date:2019-07-03
+modify	:
+1.添加rtsp直播转发功能
+2.配置文件增加rtsp转发裸流写文件功能
+
+private version	: 0.4.0.2
+author	: dawson
+date:2019-06-17
+modify	:
+1.解决m3u8文件点播没有播放时长的问题
+
+
+private version	: 0.4.0.1
+author	: dawson
+date:2019-06-13
+modify	:
+1.解决格式化字符串错误导致服务器崩溃的问题
+2.解决大部分编译警告提示问题
+
+private version	: 0.4.0.0
+author	: dawson
+date:2019-06-13
+modify	:
+1.将IPC推流触发类型上传到SRS服务器
+2.IPC触发推流写HLS文件可在配置文件中配置，可支持配置一种或多种触发类型写HLS文件
+3.rtmp播放和推流token校验强度可以分别在配置文件中配置，支持三种强度的校验：
+0：不校验token
+1：弱校验（仅用于测试），带有token便进行校验，不带token便不进行校验，方便第三方测试工具的接入
+2：强校验，必须使用token校验，否则将拒绝连接
+
+private version	: 0.3.0.0
+author	: dawson
+date:2019-06-05
+modify	:
+1.添加业务模块回调通知接口on_connect
+2.添加业务模块回调通知接口on_authorize
+3.添加业务模块回调通知接口on_close
+4.去除不必要的测试输出文件
+5.增加SRS集群主从节点配置
+
+
+private version	: 0.2.0.0
+author	: dawson
+modify	:
+1.增加SRS开发文档
+2.增加SRS配置文档
+
+
+private version	: 0.2.0.0
+author	: dawson
+modify	:
+1.支持redis hash键值数据库记录
+2.支持rtmp连接http回调通知接口
+3.支持rtmptoken校验
+
+version	: 0.1.3.2
+author	: dawson
+modify	:
+1.解决ts分片第一帧时间戳很大导致文件无法的问题
+2.解决多个ts分片写入一个ts文件中导致分片过大的问题
+3.支持音视频数据推流端AES加密，srs服务器AES解密
+3.修改服务器配置文件，支持redis数据连接信息从配置文件读取
+4.日志支持错误日志，并且在大于一定大小是可以自动切片
+5.支持rmtp码流数据写文件
+
+git clone http://dawson.wu@sunvalley.com.cn:Wxy_12345678@gitlab.srv.sunvalley/aiot/code/oc/demo/srs-rtsp-over-tcp-demo
+//http://dawson.wu@sunvalley.com.cn:Wxy_12345678@gitlab.srv.sunvalley/vava/code/cloud_code/sdk/srs.git

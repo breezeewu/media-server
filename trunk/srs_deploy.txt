@@ -1,0 +1,3 @@
+yum install mysql-community-devel.x86_64
+»ò
+yum install mysql-devel
